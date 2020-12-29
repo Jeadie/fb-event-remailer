@@ -43,7 +43,7 @@ def handler(event, context):
     if event["queryStringParameters"]["hub.mode"] != "subscribe":
         print("Message not meant for me")
 
-    if event["queryStringParameters"]["hub.verify_token"] != "123456":
+    if event["queryStringParameters"]["hub.verify_token"] != pos.environ['FB_APP_VERIFY_TOKEN']:
         print("Failed verification token")
 
     return event["queryStringParameters"]["hub.challenge"]
